@@ -1,0 +1,6 @@
+?loc = haunted halls
+  equipL vigor Wand
+  equipR vigor shield
+  ?foe = boss
+    equipL big vigor sword
+    equipR Vigor Wand

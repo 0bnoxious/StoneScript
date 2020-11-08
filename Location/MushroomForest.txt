@@ -1,0 +1,70 @@
+var Global = new Global
+
+?loc = Mushroom Forest
+  //Boss Salvo timers ---------------------------------------------------------------
+  var isSalvoInProgress = false
+  var salvoTimer = 0
+  ?isSalvoInProgress = true & foe.maxhp ! 210
+    salvoTimer++
+  ?salvoTimer > 160
+    ResetSalvoTimer()
+    isSalvoInProgress = false
+  
+  //Functions ----------------------------------------------------------------------
+  
+  var FistTimer = 0
+  func DodgeFist()
+    ?salvoTimer = 0 //Si le salvo est pas en cours
+      FistTimer++
+    ?45 < FistTimer //Si ya fini de crinker son poing
+      ?item.GetCooldown("mind") <= 0
+        equipL Mind Stone
+      ResetFistTimer()
+      return true
+  
+  func ResetFistTimer()
+    FistTimer = 0
+  
+  func ResetSalvoTimer()
+    salvoTimer = 0
+  
+  func ResetShieldTimer()
+    ShieldTimer = 0
+  
+  //Level Script -------------------------------------------------------------------
+  var foeState
+  foeState = foe.state
+  >Fist Timer = @FistTimer@ | Salvo Timer = @salvoTimer@ | Shield Timer = @ShieldTimer@ | FOE state = @foeState@
+
+  equipL poison Wand
+  equipR Vigor Wand   
+  ?foe.distance >= Global.WandRange
+    equipL Repeating Crossbow
+  ?foe.distance > Global.CrossbowRange
+    equipL star
+    equipR Ouroboros
+    ?hp = maxhp
+      equipR Triskelion
+
+  ?foe = boss
+    equipL Poison Wand
+    equipR Vigor Wand
+    ?foe.distance >= Global.WandRange & foe.maxhp < 200
+      equipL Repeating Crossbow
+    ?foe.count > 1 | foe.distance <= 9
+      equipL Æther Hammer
+      equipR Big Vigor Sword
+    ?foe.debuffs.count < 1 & foe.distance <= Global.WandRange
+      equipL Poison Wand *3
+      equipR Poison Wand
+    ?foe.state = 32 & foe.count = 1
+      ?DodgeFist()
+        isSalvoInProgress = true
+    ?isSalvoInProgress = true & salvoTimer > 70
+      equipR Vigor Shield
+    
+  ?loc.begin | loc.loop
+    ResetFistTimer()
+    ResetSalvoTimer()
+    isSalvoInProgress = false
+

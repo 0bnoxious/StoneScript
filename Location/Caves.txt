@@ -1,0 +1,26 @@
+?loc = caves
+  var farminCash = true
+  ?farminCash = true
+    equipL Vigor Wand
+    equipR Ki
+    ?foe = boss
+      equipL big vigor sword
+      equipR Æther Hammer
+  :
+  ?farminCash = false
+    equipL Repeating Crossbow
+    ?foe.distance <= 20 & foe.distance >= 7
+      equipL Vigor Wand
+      equipR Vigor Shield
+    ?foe.distance <= 6 
+      equipL big vigor sword
+      equipR compound shield
+    ?foe = nail biter
+      equipL big vigor sword
+      equipR Vigor Wand
+    ?foe = boss
+      equipL big vigor sword
+      equipR Æther Hammer
+    ?foe.distance > 23
+      equipL star
+      equipR Ouroboros

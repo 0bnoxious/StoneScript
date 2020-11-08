@@ -1,0 +1,14 @@
+import Fishing
+var Global = new Global
+
+var foeInfo
+foeInfo = foe
+//>FOE info = @foeInfo@
+
+var foeState
+foeState = foe.state
+//>FOE.state = @foeState@
+
+?hp < 7
+  activate potion
+

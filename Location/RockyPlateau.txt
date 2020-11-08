@@ -1,0 +1,5 @@
+var Global = new Global
+
+?loc = Rocky
+  equipL Big Vigor Sword
+  equipR Æther Hammer

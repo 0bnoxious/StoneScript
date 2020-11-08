@@ -1,0 +1,40 @@
+?loc = Boiling Mine
+  equipL Repeating Crossbow
+  ?foe.distance <= 20 & foe.distance >= 7
+    equipL Vigor Wand
+    equipR Vigor Shield
+  ?foe.distance <= 6 
+    equipL big vigor sword
+    equipR Vigor Shield
+  ?foe = dominotaur & foe.distance <= 17
+    equipL big vigor sword
+    equipR Vigor Shield
+  ?foe = Mine Walker
+    equipL Æther Hammer
+    equipR Vigor Shield
+  ?foe = flame geyser | foe = fire elemental
+    equipL big vigor sword
+    equipR Vigor Shield
+  ?foe = boss
+    ?foe.state = 2
+      equipL Repeating Crossbow
+    ?foe.state = 32 
+      DodgeHammer()
+    ?foe.state = 33
+      equipL big vigor sword
+      equipR Æther Hammer
+    ?foe.state ! 32
+      ResetHammerTimer()
+  ?foe.distance > 23
+    equipL star
+    equipR Ouroboros
+
+var HammerTimer
+func DodgeHammer()
+  >Hammer Timer = @HammerTimer@
+  HammerTimer++
+  ?15 < HammerTimer
+    equipL Mind Stone
+
+func ResetHammerTimer()
+  HammerTimer = 0

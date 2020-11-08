@@ -1,0 +1,33 @@
+var CrossbowRange = 22
+var WandRange = 20
+var StaffRange = 10
+var BigSwordRange = 6
+var SwordRange = 5
+var HammerRange = 5
+
+//Vigor shield juggling ----------------------------------------------------------------------------------
+//var shieldingDelay = 0
+//var shieldingDelayTimer = 0
+//var isShieldingDelayTimerRunning = false
+//  ?isShieldingDelayTimerRunning = true
+//    shieldingDelayTimer++
+//?shieldingTimer >= shieldingDelay
+//  isShieldingDelayTimerRunning = false
+//  shieldingDelay = 0
+//
+//var shieldUp = 0
+//var shieldUpTimer = 0
+//var isShieldingUpTimerRunning = false
+//  ?isShieldingTimerRunning = true
+//    shieldUpTimer++
+//?shieldUpTimer >= shieldUp
+//  isShieldingUpTimerRunning = false
+//  shieldUp = 0
+
+//func JugleVigorShield(delay, duration)
+//  shieldingDelay = delay
+//  isShieldingDelayTimerRunning = true
+//  shieldUp = duration
+//  isShieldingUpTimerRunning = true
+  
+

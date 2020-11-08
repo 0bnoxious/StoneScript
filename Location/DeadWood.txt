@@ -1,0 +1,50 @@
+?loc = deadwood
+
+  ?foe.count > 3 & foe.distance <= 23
+    activate potion
+
+  var rootTimer = 0
+  func DodgeRoot()
+    rootTimer++
+    ?15 < rootTimer
+      equipL Mind Stone
+      ResetrootTimer()
+
+  func ResetrootTimer()
+    rootTimer = 0
+
+  //var foeState
+  //foeState = foe.state
+  //>FOE.state = @foeState@ | Root Timer = @rootTimer@             
+
+  var farminCash = false
+  ?farminCash = true
+    equipL Big Vigor sword
+    equipR Ki
+  :
+  ?farminCash = false
+    ?foe = Stone Scarab
+      equipL big vigor sword  
+      equipR Compound shield
+    ?foe = Huge mosquito
+      ?hp > 34
+        equipL Repeating Crossbow
+      :
+        equipL Vigor Wand
+        equipR Vigor Shield
+
+    ?foe = boss 
+      equipL Æther Hammer
+      equipR big sword
+        ?foe.distance > 22
+          equipL star
+          equipR Ouroboros
+          ?hp = maxhp
+            equipR Triskelion
+      //?foe.state = 33 & item.GetCooldown("mind") <= 0
+        //DodgeRoot()
+    ?foe.distance > 22
+      equipL star
+      equipR Ouroboros
+      ?hp = maxhp
+        equipR Triskelion
